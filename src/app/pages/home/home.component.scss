@@ -1,0 +1,57 @@
+.container {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 35vw 35vw 35vw;
+  background-color: black;
+  align-items: center;
+  overflow: hidden;
+
+  a {
+    text-decoration: none;
+    margin: 0;
+  }
+
+  .m_st {
+    width: 20vw;
+    height: 30vh;
+    text-align: center;
+    color: #fff;
+    font-size: x-large;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 2vw;
+  }
+
+  #rock {
+    background-color: red;
+    margin-left: 15%;
+  }
+
+  #electro {
+    background-color: mediumturquoise;
+    margin-left: 5%;
+  }
+
+  #hip_hop {
+    background-color: orange;
+  }
+
+  #pop {
+    background-color: palegreen;
+    margin-left: 15%;
+  }
+
+  #r_b {
+    background-color: plum;
+    margin-left: 5%;
+  }
+
+  #indie {
+    background-color: rebeccapurple;
+  }
+}
+
+.m_st:hover {
+  opacity: 0.6;
+}
