@@ -1,0 +1,34 @@
+.container {
+  height: 10vh;
+  background-color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .lf {
+    margin-left: 5%;
+    width: 20vw;
+    display: flex;
+    align-items: center;
+  }
+
+  .back {
+    text-decoration: none;
+    color: #fff;
+    margin-right: 5%;
+  }
+
+  input {
+    width: 15vw;
+    height: 4vh;
+  }
+
+  .like {
+    margin-right: 5%;
+    width: 2%;
+  }
+
+  img {
+    width: 100%;
+  }
+}
