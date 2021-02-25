@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./genre.component.scss']
 })
 export class GenreComponent implements OnInit {
+  isLiked: boolean = false;
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  addFavourite(): void {
+    this.isLiked = !this.isLiked;
   }
 
 }
