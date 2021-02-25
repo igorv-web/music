@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ElectroComponent } from './electro.component';
+import { FavouriteComponent } from './favourite.component';
 
-describe('ElectroComponent', () => {
-  let component: ElectroComponent;
-  let fixture: ComponentFixture<ElectroComponent>;
+describe('FavouriteComponent', () => {
+  let component: FavouriteComponent;
+  let fixture: ComponentFixture<FavouriteComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ElectroComponent ]
+      declarations: [ FavouriteComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ElectroComponent);
+    fixture = TestBed.createComponent(FavouriteComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

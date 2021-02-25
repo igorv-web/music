@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RockComponent } from './rock.component';
+import { GenreComponent } from './genre.component';
 
-describe('RockComponent', () => {
-  let component: RockComponent;
-  let fixture: ComponentFixture<RockComponent>;
+describe('GenreComponent', () => {
+  let component: GenreComponent;
+  let fixture: ComponentFixture<GenreComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RockComponent ]
+      declarations: [ GenreComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RockComponent);
+    fixture = TestBed.createComponent(GenreComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
