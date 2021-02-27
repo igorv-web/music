@@ -3,8 +3,8 @@
   <div class="content">
     <div class="album" (click)="addFavourite()">
       <span>
-        <p id="name"></p>
-        <p></p>
+        <p id="name">{{albums}}</p>
+        <p>{{albums}}</p>
       </span>
       <img src="/assets/icons/unlike.png" alt="" *ngIf="!isLiked">
       <img src="/assets/icons/like.png" alt="" *ngIf="isLiked">

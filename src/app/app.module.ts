@@ -10,15 +10,13 @@ import { HeaderComponent } from './layout/header/header.component';
 
 import { HomeComponent } from './pages/home/home.component';
 import { GenreComponent } from './pages/genre/genre.component';
-import { FavouriteComponent } from './pages/favourite/favourite.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     HeaderComponent,
-    GenreComponent,
-    FavouriteComponent
+    GenreComponent
   ],
   imports: [
     BrowserModule,

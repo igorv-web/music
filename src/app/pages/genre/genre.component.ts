@@ -9,6 +9,7 @@ import { ApiService } from 'src/app/shared/service/api.service';
 export class GenreComponent implements OnInit {
   albums: Object;
   isLiked: boolean = false;
+  like: number;
 
   constructor(private apiService: ApiService) { }
 
@@ -20,7 +21,7 @@ export class GenreComponent implements OnInit {
     this.apiService.getAlbum().subscribe(
       (data) => {
         this.albums = data;
-        console.log(data);
+        console.log(this.albums);
       },
       (err) => console.log(err)
     )
@@ -28,6 +29,9 @@ export class GenreComponent implements OnInit {
 
   addFavourite(): void {
     this.isLiked = !this.isLiked;
+    // this.like = this.like + 1;
+    // console.log(this.like);
+    // localStorage.setItem('like', this.like)
   }
 
 }
