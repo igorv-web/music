@@ -7,17 +7,20 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  margin: 0 0 2% 0;
 }
 
 .album {
   width: 15vw;
   height: 30vh;
-  background-color: greenyellow;
+  background-color: black;
   display: grid;
   text-align: center;
   color: #fff;
   cursor: pointer;
   border-radius: 5%;
+  overflow: hidden;
+  margin-top: 2%;
 
   span {
     display: none;
@@ -31,7 +34,7 @@
     }
   }
 
-  img {
+  .heart {
     display: none;
     margin: 0 auto;
   }
@@ -40,6 +43,10 @@
 .album:hover {
   background-color: black;
 
+  .alb_img {
+    display: none;
+  }
+
   span {
     max-width: 80%;
     display: block;
@@ -47,7 +54,7 @@
     font-size: medium;
   }
 
-  img {
+  .heart {
     display: block;
   }
 }

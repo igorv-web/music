@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ApiService } from 'src/app/shared/service/api.service';
 
 @Component({
@@ -7,31 +8,30 @@ import { ApiService } from 'src/app/shared/service/api.service';
   styleUrls: ['./genre.component.scss']
 })
 export class GenreComponent implements OnInit {
-  albums: Object;
+  albums: any;
   isLiked: boolean = false;
   like: number;
+  activeLink: string;
+  activeLike: boolean;
 
-  constructor(private apiService: ApiService) { }
+  constructor(private apiService: ApiService,
+              private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.getAlbums();
+    this.getAlbums(this.route.snapshot.paramMap.get('genre'));
   }
 
-  private getAlbums(): void {
-    this.apiService.getAlbum().subscribe(
+  private getAlbums(genreName: string): void {
+    this.apiService.getAlbum(genreName).subscribe(
       (data) => {
         this.albums = data;
-        console.log(this.albums);
       },
       (err) => console.log(err)
     )
   }
 
-  addFavourite(): void {
-    this.isLiked = !this.isLiked;
-    // this.like = this.like + 1;
-    // console.log(this.like);
-    // localStorage.setItem('like', this.like)
+  addFavourite(alb): void {
+    alb.isLiked = !alb.isLiked;
   }
 
 }

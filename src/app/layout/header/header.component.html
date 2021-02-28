@@ -1,9 +1,9 @@
 <div class="container">
   <div class="lf">
     <a [routerLink]="[ '/home' ]" class="back">Back</a>
-    <input type="text">
+    <input type="text" [(ngModel)]="result" (change)="search()">
   </div>
-  <a [routerLink]="[ '/favourite' ]" class="like">
+  <a class="like">
     <img src="/assets/icons/like.png" alt="">
   </a>
 </div>

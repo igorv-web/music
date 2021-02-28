@@ -1,13 +1,14 @@
 <app-header></app-header>
 <div class="container">
   <div class="content">
-    <div class="album" (click)="addFavourite()">
+    <div class="album" (click)="addFavourite(alb)" *ngFor="let alb of albums?.albums.album">
+      <img [src]="alb.image[3]['#text']" alt="" style="width: 100%; height: 100%;" class="alb_img">
       <span>
-        <p id="name">{{albums}}</p>
-        <p>{{albums}}</p>
+        <p id="name">{{alb.name}}</p>
+        <p>{{alb.artist.name}}</p>
       </span>
-      <img src="/assets/icons/unlike.png" alt="" *ngIf="!isLiked">
-      <img src="/assets/icons/like.png" alt="" *ngIf="isLiked">
+      <img src="/assets/icons/unlike.png" alt="" *ngIf="!alb.isLiked" class="heart">
+      <img src="/assets/icons/like.png" alt="" *ngIf="alb.isLiked" class="heart">
     </div>
   </div>
 </div>
