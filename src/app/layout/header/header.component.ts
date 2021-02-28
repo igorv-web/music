@@ -7,15 +7,25 @@ import { ApiService } from 'src/app/shared/service/api.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  result: string;
+  ask: string;
+  result: any;
+  likeCount: number = parseInt(localStorage.getItem('like'));
 
   constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
+    this.search();
   }
 
   search(): void {
-    this.apiService.searchMusic(this.result);
+    if(this.ask != '') {
+      this.apiService.searchMusic(this.ask).subscribe(
+        (data) => {
+          this.result = data;
+        },
+        (err) => console.log(err)
+      );
+    }
   }
 
 }

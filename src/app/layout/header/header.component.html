@@ -1,9 +1,11 @@
 <div class="container">
   <div class="lf">
     <a [routerLink]="[ '/home' ]" class="back">Back</a>
-    <input type="text" [(ngModel)]="result" (change)="search()">
+    <input type="text" [(ngModel)]="ask" (change)="search()">
   </div>
-  <a class="like">
+  <div class="like">
     <img src="/assets/icons/like.png" alt="">
-  </a>
+    <p id="count">{{likeCount}}</p>
+  </div>
 </div>
+<router-outlet></router-outlet>

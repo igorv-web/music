@@ -25,10 +25,18 @@
 
   .like {
     margin-right: 5%;
-    width: 2%;
+    width: 3%;
+    display: flex;
+    align-items: center;
+    height: 2vh;
   }
 
   img {
-    width: 100%;
+    width: 80%;
+    margin-right: 15%;
+  }
+
+  #count {
+    color: #fff;
   }
 }

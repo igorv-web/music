@@ -10,9 +10,10 @@ import { ApiService } from 'src/app/shared/service/api.service';
 export class GenreComponent implements OnInit {
   albums: any;
   isLiked: boolean = false;
-  like: number;
+  like: number = 1;
   activeLink: string;
   activeLike: boolean;
+  likeNumber: number;
 
   constructor(private apiService: ApiService,
               private route: ActivatedRoute) { }
@@ -31,7 +32,16 @@ export class GenreComponent implements OnInit {
   }
 
   addFavourite(alb): void {
+    this.like = parseInt(localStorage.getItem('like'));
     alb.isLiked = !alb.isLiked;
+    if(alb.isLiked) {
+      this.like = this.like + 1;
+    } else {
+      if(this.like > 1) {
+        this.like = this.like - 1;
+      }
+    }
+    localStorage.setItem('like', JSON.stringify(this.like));
   }
 
 }
