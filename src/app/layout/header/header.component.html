@@ -1,11 +1,26 @@
 <div class="container">
   <div class="lf">
     <a [routerLink]="[ '/home' ]" class="back">Back</a>
-    <input type="text" [(ngModel)]="ask" (change)="search()">
+    <input type="text" (ngModelChange)="search()" [(ngModel)]="ask">
   </div>
   <div class="like">
     <img src="/assets/icons/like.png" alt="">
     <p id="count">{{likeCount}}</p>
   </div>
 </div>
-<router-outlet></router-outlet>
+
+<router-outlet *ngIf="!searching"></router-outlet>
+
+<div class="area" *ngIf="searching">
+  <div class="content">
+    <div class="album" (click)="addFavourite(alb)" *ngFor="let res of results?.albummatches.album">
+      <img [src]="res.image[3]['#text']" alt="" style="width: 100%; height: 100%;" class="alb_img" *ngIf="searched">
+      <span>
+        <p id="name" *ngIf="searched">{{res.name}}</p>
+        <p *ngIf="searched">{{res.artist.name}}</p>
+      </span>
+      <img src="/assets/icons/unlike.png" alt="" *ngIf="!alb.isLiked" class="heart">
+      <img src="/assets/icons/like.png" alt="" *ngIf="alb.isLiked" class="heart">
+    </div>
+  </div>
+</div>

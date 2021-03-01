@@ -40,3 +40,68 @@
     color: #fff;
   }
 }
+
+.album {
+  width: 15vw;
+  height: 30vh;
+  background-color: black;
+  display: grid;
+  text-align: center;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5%;
+  overflow: hidden;
+  margin-top: 2%;
+
+  span {
+    display: none;
+    margin-top: 15%;
+    p {
+      font-size: 1vw;
+    }
+
+    #name {
+      font-size: large;
+    }
+  }
+
+  .heart {
+    display: none;
+    margin: 0 auto;
+  }
+}
+
+.album:hover {
+  background-color: black;
+
+  .alb_img {
+    display: none;
+  }
+
+  span {
+    max-width: 80%;
+    display: block;
+    margin: 0 auto;
+    font-size: medium;
+  }
+
+  .heart {
+    display: block;
+  }
+}
+
+.content {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 0 0 2% 0;
+}
+
+.area {
+  width: 100%;
+  min-height: 90vh;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+}

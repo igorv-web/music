@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
-
+  like: Subject<boolean> = new Subject<boolean>(); 
+  result: Subject<boolean> = new Subject<boolean>(); 
   constructor(private http: HttpClient) { }
 
   getAlbum(genre: string) {
