@@ -11,11 +11,7 @@ export class GenreComponent implements OnInit {
   albums: any;
   isLiked: boolean = false;
   like: number = 0;
-  activeLink: string;
   activeLike: boolean;
-  likeNumber: number;
-  results: any;
-  name: string;
 
   constructor(private apiService: ApiService,
               private route: ActivatedRoute) { }
@@ -36,21 +32,11 @@ export class GenreComponent implements OnInit {
   addFavourite(alb): void {
     this.like = parseInt(localStorage.getItem('like'));
     alb.isLiked = !alb.isLiked;
-    let likedName: Array<string>;
-    if(localStorage.getItem('albums') == this.albums?.albums.album.name) {
-      alb.isLiksed = true;
-    }
     if(alb.isLiked) {
-      this.like = this.like + 1;
-      this.name = alb.name;
-      likedName.push(this.name);
-      localStorage.setItem('albums', JSON.stringify(likedName));
+      this.like = this.like + 1;  
     } else {
       if(this.like >= 1) {
         this.like = this.like - 1;
-        let indexLike = likedName.indexOf(alb.name);
-        likedName.splice(indexLike);
-        localStorage.removeItem(this.name);
       }
     }
     localStorage.setItem('like', JSON.stringify(this.like));

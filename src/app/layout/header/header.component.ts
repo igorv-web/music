@@ -7,13 +7,14 @@ import { ApiService } from 'src/app/shared/service/api.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  likedAlbums: Array<any>;
   ask: string;
   result: any;
   likeCount: number = parseInt(localStorage.getItem('like'));
   searching: boolean = false;
-  results: any;
   like: number = 0;
-  name: string;
+  ralb: Array<any> = [];
+  album: any;
 
   constructor(private apiService: ApiService) { }
 
@@ -42,37 +43,28 @@ export class HeaderComponent implements OnInit {
   }
 
   search(): void {
-    if(this.ask) {
+    this.apiService.result.next(true);
+    if(this.ask.length >= 3) {
       this.searching = true;
-      this.apiService.searchMusic(this.ask).subscribe(
-        (data) => {
-          this.result = data;
-        },
-        (err) => console.log(err)
-      );
     } else if(!this.ask) {
       this.searching = false;
     }
-    this.apiService.result.next(true);
-    console.log(this.result);
+    this.apiService.searchMusic(this.ask).subscribe(
+      (data) => {
+        this.album = data;
+      },
+      (err) => console.log(err)
+    );
   }
 
   addFavourite(alb): void {
     this.like = parseInt(localStorage.getItem('like'));
     alb.isLiked = !alb.isLiked;
-    let likedName = [alb.name];
-    if(localStorage.getItem('albums') == this.results?.albummatches.album.name) {
-      alb.isLiksed = true;
-    }
     if(alb.isLiked) {
       this.like = this.like + 1;
-      this.name = alb.name;
-      likedName.push(this.name)
-      localStorage.setItem('albums', JSON.stringify(likedName));
     } else {
       if(this.like >= 1) {
         this.like = this.like - 1;
-        localStorage.removeItem(this.name);
       }
     }
     localStorage.setItem('like', JSON.stringify(this.like));

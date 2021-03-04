@@ -13,14 +13,14 @@
 
 <div class="area" *ngIf="searching">
   <div class="content">
-    <div class="album" (click)="addFavourite(alb)" *ngFor="let res of results?.albummatches.album">
-      <img [src]="res.image[3]['#text']" alt="" style="width: 100%; height: 100%;" class="alb_img" *ngIf="searched">
+    <div class="album" (click)="addFavourite(res)" *ngFor="let res of album?.results.albummatches.album">
+      <img [src]="res?.image[3]['#text']" alt="" style="width: 100%; height: 100%;" class="alb_img">
       <span>
-        <p id="name" *ngIf="searched">{{res.name}}</p>
-        <p *ngIf="searched">{{res.artist.name}}</p>
+        <p id="name">{{res?.name}}</p>
+        <p>{{res?.artist.name}}</p>
       </span>
-      <img src="/assets/icons/unlike.png" alt="" *ngIf="!alb.isLiked" class="heart">
-      <img src="/assets/icons/like.png" alt="" *ngIf="alb.isLiked" class="heart">
+      <img src="/assets/icons/unlike.png" alt="" *ngIf="!res.isLiked" class="heart">
+      <img src="/assets/icons/like.png" alt="" *ngIf="res.isLiked" class="heart">
     </div>
   </div>
 </div>
